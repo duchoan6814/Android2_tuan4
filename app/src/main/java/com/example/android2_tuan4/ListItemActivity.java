@@ -26,6 +26,14 @@ public class ListItemActivity extends AppCompatActivity {
         rcvMain.setAdapter(itemAdapter);
         rcvMain.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
 
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 
     private void generateListPlant() {
