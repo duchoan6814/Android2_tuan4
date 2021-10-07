@@ -1,10 +1,15 @@
 package com.example.android2_tuan4;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.transition.Fade;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +25,18 @@ public class ListItemActivity extends AppCompatActivity {
 
         rcvMain = findViewById(R.id.rcvMain);
 
+        Fade fade = new Fade();
+        View decor = getWindow().getDecorView();
+
+        getWindow().setEnterTransition(fade);
+
+        getWindow().setExitTransition(fade);
+
         generateListPlant();
 
         ItemAdapter itemAdapter = new ItemAdapter(plants, this);
         rcvMain.setAdapter(itemAdapter);
         rcvMain.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-
-
 
     }
 
